@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>NextHotSpot</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="/static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href={{cdn_css|safe}} type="text/css" />
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.css"
+          rel="stylesheet" type="text/css" >
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.css"
+          rel="stylesheet" type="text/css" >
+    <link href="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.css"
+          rel="stylesheet" type="text/css" >
+
+    <!-- Plugin CSS -->
+    <link href="/static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/static/css/creative.min.css" rel="stylesheet">
+    <link rel="stylesheet" href={{url_for('static',filename='css/main.css')}} type="text/css" />
+
+    <style>
+    .div.bk-slider-value
+    {font-size:50px;}
+    label {
+      font-size:20px;
+      color: white;
+    }
+    </style>
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Welcome!</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">Business Trend</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Time Series</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#portfolio">Data Sources</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">About Me</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-10 mx-auto">
+            <h1 class="text-uppercase">
+              <strong>Next Hot Spot</strong>
+            </h1>
+            <hr>
+          </div>
+          <div class="col-lg-8 mx-auto">
+            <p class="section-heading text-white">Locate popular neighborhoods in Pittsburgh to open your next restaurant --
+               Business trend analysis using Yelp review data</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Business Trend</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-center">
+            <h2 class="section-heading text-white">Monthly Market Share in Restaurant Business across Neighborhoods in Pittsburgh, PA
+                                                    </h2>
+            <p class="text-faded mb-4">Yelp reviews between January 2006 and November 2017 for restaurants in Pittsburgh, PA are grouped by month and neighborhood.
+              The number of reviews received by each neighborhood, which indicates the popularity and profitability of restaurants in each area,
+              is presented below as a percentage of total number of reviews for each month. Predicted review counts for December 2017 - December 2018 are also shown. </p>
+            <hr class="light my-4">
+            {{script|safe}}
+            {{div|safe}}
+            <p class="text-faded mb-4">Map of neighborhoods in Pittsburgh</p>
+              <p class="text-faded mb-4">Top three promising neighborhoods are:<br />Central Business District<br />Strip District<br />Southside Flats</p>
+            <hr class="light my-4">
+            <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Time Series Analysis</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Time Series Analysis</h2>
+            <hr class="my-4">
+            {{script2|safe}}
+            {{div2|safe}}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-primary" id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-left">
+            <h2 class="section-heading text-white">Data and Analysis</h2>
+             <p class="text-faded mb-4">
+              <a class="text-faded mb-4" href="https://www.yelp.com/dataset/challenge">Yelp Data Challenge Dataset</a> and
+              <a class="text-faded mb-4" href="https://www.zillow.com/howto/api/neighborhood-boundaries.htm"> Zillow Neighborhood Boundaries</a>
+              are used. Yelp dataset includes business information and review data for each business from 2005 to November 2017, which are JSON files. Pittsburgh neighborhood boundaries are extracted from Pennsylvania neighborhood shapefile.
+              The two sources of data are joined together and formatted using Pandas, with Year-Month as index and review counts for each neighborhood as values.
+              </p>
+              <p class="text-faded mb-4">
+                Yelp launched iPhone app in 2008 and Android app in late 2009. To take into account of reviews from both desktop and mobile users, review data after 2010 was used in time series analysis.
+                For several neighborhoods, such as the Central Business District and Southside Flats, review counts increased exponentially, so the data was log-transformed before fitting a time series model.
+              </p>
+              <p class="text-faded mb-4">  Both decomposing the review counts for Central Business District and Fourier transforming the data to frequency domain revealed a seasonal component of 12-month.
+                As a result, <a class="text-faded mb-4" href="http://www.statsmodels.org/dev/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html">the SARIMAX</a> (Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors) model in Python StatsModel was selected to fit the data.
+                Data between January 2010 and December 2016 was used as training dataset to find the model parameters through gridsearch for each neighborhood. The parameters being searched include the order of difference [0, 1], the AR term [0, 1, 2], the MA term [0, 1, 2]
+                and the corresponding terms for the seasonal component. The model performance was evaluated on the test data from January 2017 to November 2017.
+                After choosing the model parameters, data between 2010 and 2017 were used to fit the model, and prediction on the review count was made for December 2017 to December 2018.
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 mx-auto text-left">
+            <h2 class="section-heading">About Me</h2>
+            <p class="mb-5">My name is Chen Chen, and I received my doctorate degree in Geophysics from Purdue University.
+              My research involved analyzing waveforms of thousands of natural earthquakes that happened around the globe to image the structure beneath the central United States.
+              My interest in data analysis and finding insight from analysis results has driven me to explore the field of Data Science.
+              At the Data Incubator Data Science Bootcamp, I gained hands-on experience on scrapping websites, time series analysis, SQL, machine learning using Scikit-Learn, MapReduce, Spark and Natural Lauguage Processing.
+              I also have experience in analyzing data using R.
+             </p>
+             <p class="mb-5">When I am not wrangling with data and modeling, I enjoy running, hiking, cooking, and learning about earthquakes and how tectonic plates work. A fun fact about my previous work:
+               I have dug many holes in people's backyards, horse pastures, chicken farms across Missouri, Illinois, Indiana and Kentucky, and installed over 100 seismic stations in these states as part of a team.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 mr-auto text-right">
+          <div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="chenchenphd">
+            <a class="LI-simple-link" href='https://www.linkedin.com/in/chenchenphd?trk=profile-badge'>Chen Chen</a>
+          </div>
+          </div>
+          <div class="col-lg-4 mr-auto text-center">
+            <i class="fa fa-envelope-o fa-3x mb-3 sr-contact"></i>
+            <p>
+              <a href="mailto:chen.chen@mg.thedataincubator.com">chen.chen@mg.thedataincubator.com</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/static/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="/static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="/static/vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="/static/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="/static/js/creative.min.js"></script>
+
+    <script type="text/javascript" src={{cdn_js|safe}}></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.15.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.15.min.js"></script>
+    <script src="https://cdn.pydata.org/bokeh/release/bokeh-tables-0.12.15.min.js"></script>
+    <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+
+  </body>
+
+</html>
